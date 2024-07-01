@@ -16,7 +16,7 @@ sequelize.sync().then(() => {
 app.get("/musics", async (req, res) => {
   try {
     const musics = await Music.findAll();
-    res.status(200).json(musics);
+    res.status(200).json({ data: musics });
   } catch (error) {
     console.error(error);
     res.status(500).send("Error retrieving music");
@@ -28,7 +28,7 @@ app.get("/musics/:id", async (req, res) => {
   try {
     const music = await Music.findByPk(id);
     if (music) {
-      res.status(200).json(music);
+      res.status(200).json({ data: music });
     } else {
       res.status(404).send("Music not found");
     }
