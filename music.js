@@ -5,17 +5,21 @@ class Music extends Model {}
 
 Music.init(
   {
-    name: {
+    url: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
-    link: {
+    title: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
-    single: {
+    artist: {
       type: DataTypes.STRING,
-      allowNull: false,
+    },
+    artwork: {
+      type: DataTypes.STRING,
+    },
+    playlist: {
+      type: DataTypes.JSON,
+      defaultValue: [],
     },
   },
   {
