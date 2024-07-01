@@ -1,25 +1,26 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("./dbconfig");
+const sequelize = require("./database");
 
 class Music extends Model {}
 
 Music.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-    },
     name: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     link: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    single: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   },
   {
     sequelize,
     modelName: "music",
-    timestamps: false,
   }
 );
 
